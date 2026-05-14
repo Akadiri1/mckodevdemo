@@ -151,9 +151,9 @@ $site_tagline   = $websiteInfo[0]['input_tagline']          ?? 'Fractional CTO';
     }
   </script>
 
-  <?php //if (isset($_SESSION['admin_id'])): ?>
+  <?php if (isset($_SESSION['admin_id'])): ?>
     <script src="https://admc.dev/admc.min.js" charset="utf-8"></script>
-  <?php //endif; ?>
+  <?php endif; ?>
 
 </body>
 </html>
