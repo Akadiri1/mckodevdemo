@@ -105,34 +105,40 @@ $site_tagline   = $websiteInfo[0]['input_tagline']          ?? 'Fractional CTO';
 
   <!-- ── AI Chat Widget ─────────────────────────────────────── -->
   <div class="ai-chat-widget">
-    <div class="chat-label">Ask Mike AI about Mike</div>
+    <div class="chat-label">Ask AI about <?= htmlspecialchars($site_name, ENT_QUOTES, 'UTF-8') ?></div>
+
     <div class="chat-window" id="chatWindow">
       <div class="chat-header" id="chatHeader">
         <div class="ai-avatar">AI</div>
         <div class="ai-info">
-          <h4>Mike's Virtual Assistant</h4>
-          <p>Online | Ask about Mike</p>
+          <h4><?= htmlspecialchars($site_name, ENT_QUOTES, 'UTF-8') ?> Assistant</h4>
+          <p>Online | Ask about <?= htmlspecialchars($site_name, ENT_QUOTES, 'UTF-8') ?></p>
         </div>
         <div class="chat-drag-hint" title="Drag to move"><i class="ph ph-dots-six"></i></div>
         <button class="chat-close-btn" id="chatCloseBtn" aria-label="Close chat">
           <i class="ph ph-x"></i>
         </button>
-      </div>
+      </div><!-- /chat-header -->
+
       <div class="chat-messages" id="chatMessages">
         <div class="message bot">
-          Hi! I'm Mike's AI assistant. Ask me anything about Mike, his Fractional CTO services, NetSuite expertise, or the DCAT method!
+          Hi! I'm <?= htmlspecialchars($site_name, ENT_QUOTES, 'UTF-8') ?>'s AI assistant. Ask me anything about <?= htmlspecialchars($site_name, ENT_QUOTES, 'UTF-8') ?>!
         </div>
-      </div>
+      </div><!-- /chat-messages -->
+
       <form class="chat-input" id="chatForm">
-        <input type="text" id="userInput" placeholder="Ask about Mike..." required>
+        <input type="text" id="userInput" placeholder="Ask a question..." required>
         <button type="submit"><i class="ph ph-paper-plane-right"></i></button>
       </form>
-    </div>
+    </div><!-- /chat-window -->
+
+    <!-- Bubble is OUTSIDE chat-window so it always shows -->
     <div class="chat-bubble" id="chatBubble">
       <i class="ph ph-chats-circle"></i>
       <div class="notification-dot"></div>
     </div>
-  </div>
+
+  </div><!-- /ai-chat-widget -->
 
   <!-- Mike Mahony shared JS -->
   <script src="/mm_shared.js"></script>
