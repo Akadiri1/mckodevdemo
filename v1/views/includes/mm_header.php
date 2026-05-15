@@ -135,9 +135,9 @@ foreach ($mmNavDropRaw as $drop) {
           <!-- Sidebar header: logo + close -->
           <div class="sidebar-header">
             <a href="/" class="sidebar-logo">
-              <img src="<?= htmlspecialchars($mm_info['image_1'] ?? '/assets/img/logo.png', ENT_QUOTES, 'UTF-8') ?>"
+              <img src="<?= htmlspecialchars($logo_directory ?? '', ENT_QUOTES, 'UTF-8') ?>"
                    alt="<?= htmlspecialchars($site_name, ENT_QUOTES, 'UTF-8') ?>"
-                   style="height:38px;width:auto;object-fit:contain;display:block;">
+                   class="logo-img">
             </a>
             <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">
               <i class="ph ph-x"></i>

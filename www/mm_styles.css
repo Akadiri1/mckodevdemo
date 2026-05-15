@@ -362,6 +362,11 @@ ul {
   display: none;
 }
 
+/* sidebar-header (logo + close) is mobile-only */
+.sidebar-header {
+  display: none;
+}
+
 .navbar.scrolled {
   background: var(--nav-scrolled-bg);
   border-bottom: 1px solid var(--border);
