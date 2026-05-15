@@ -870,6 +870,18 @@ ul {
   color: #fff;
 }
 
+/* Dropdown items always dark in light mode — override white nav-links rule */
+[data-theme="light"] .nav-dropdown li a,
+[data-theme="light"] .home-page .nav-dropdown li a,
+[data-theme="light"] .has-dark-hero .nav-dropdown li a {
+  color: var(--text-secondary) !important;
+}
+[data-theme="light"] .nav-dropdown li a:hover,
+[data-theme="light"] .home-page .nav-dropdown li a:hover,
+[data-theme="light"] .has-dark-hero .nav-dropdown li a:hover {
+  color: var(--primary) !important;
+}
+
 [data-theme="light"] .home-page .navbar:not(.scrolled) .nav-links a.active,
 [data-theme="light"] .has-dark-hero .navbar:not(.scrolled) .nav-links a.active {
   color: var(--primary-light);
@@ -3034,20 +3046,30 @@ section {
 }
 .nav-dropdown {
   position: absolute;
-  top: calc(100% + 10px);
+  top: 100%;
   left: 50%;
-  transform: translateX(-50%) translateY(8px);
+  transform: translateX(-50%) translateY(4px);
   min-width: 230px;
   background: var(--bg-secondary);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  padding: 8px 0;
+  /* padding-top bridges the gap so mouse stays within the hover zone */
+  padding: 12px 0 8px;
   list-style: none;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
   z-index: 200;
   box-shadow: var(--shadow-lg);
+}
+/* Invisible bridge above dropdown so mouse doesn't leave hover zone */
+.nav-dropdown::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  height: 12px;
 }
 .nav-dropdown-wrap:hover .nav-dropdown {
   opacity: 1;

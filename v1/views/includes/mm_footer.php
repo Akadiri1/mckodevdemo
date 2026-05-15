@@ -103,7 +103,7 @@ $site_tagline   = $websiteInfo[0]['input_tagline']          ?? 'Fractional CTO';
     </div>
   </footer>
 
-  <!-- ── AI Chat Widget ─────────────────────────────────────── -->
+  <?php /* ── AI Chat Widget (commented out) ──────────────────────
   <div class="ai-chat-widget">
     <div class="chat-label">Ask AI about <?= htmlspecialchars($site_name, ENT_QUOTES, 'UTF-8') ?></div>
 
@@ -118,27 +118,27 @@ $site_tagline   = $websiteInfo[0]['input_tagline']          ?? 'Fractional CTO';
         <button class="chat-close-btn" id="chatCloseBtn" aria-label="Close chat">
           <i class="ph ph-x"></i>
         </button>
-      </div><!-- /chat-header -->
+      </div>
 
       <div class="chat-messages" id="chatMessages">
         <div class="message bot">
           Hi! I'm <?= htmlspecialchars($site_name, ENT_QUOTES, 'UTF-8') ?>'s AI assistant. Ask me anything about <?= htmlspecialchars($site_name, ENT_QUOTES, 'UTF-8') ?>!
         </div>
-      </div><!-- /chat-messages -->
+      </div>
 
       <form class="chat-input" id="chatForm">
         <input type="text" id="userInput" placeholder="Ask a question..." required>
         <button type="submit"><i class="ph ph-paper-plane-right"></i></button>
       </form>
-    </div><!-- /chat-window -->
+    </div>
 
-    <!-- Bubble is OUTSIDE chat-window so it always shows -->
     <div class="chat-bubble" id="chatBubble">
       <i class="ph ph-chats-circle"></i>
       <div class="notification-dot"></div>
     </div>
 
-  </div><!-- /ai-chat-widget -->
+  </div>
+  */ ?>
 
   <!-- Mike Mahony shared JS -->
   <script src="/mm_shared.js"></script>
