@@ -35,7 +35,26 @@
   if (navToggle) navToggle.addEventListener('click', toggleNav);
   if (navOverlay) navOverlay.addEventListener('click', toggleNav);
   if (sidebarClose) sidebarClose.addEventListener('click', toggleNav);
-  if (navLinks) navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { if (navLinks.classList.contains('open')) toggleNav(); }));
+  if (navLinks) navLinks.querySelectorAll('a').forEach(a => {
+    // Skip dropdown trigger links — handled separately below
+    if (a.closest('.nav-dropdown-wrap') && !a.closest('.nav-dropdown')) return;
+    a.addEventListener('click', () => { if (navLinks.classList.contains('open')) toggleNav(); });
+  });
+
+  // Mobile: click the Services trigger to expand sub-items inline
+  if (navLinks) {
+    navLinks.querySelectorAll('.nav-dropdown-wrap > a').forEach(trigger => {
+      trigger.addEventListener('click', function(e) {
+        if (window.innerWidth > 900) return; // desktop uses hover
+        e.preventDefault();
+        const wrap = trigger.closest('.nav-dropdown-wrap');
+        const isOpen = wrap.classList.contains('open');
+        // Close any other open dropdowns
+        navLinks.querySelectorAll('.nav-dropdown-wrap.open').forEach(w => w.classList.remove('open'));
+        if (!isOpen) wrap.classList.add('open');
+      });
+    });
+  }
 
   // Scroll reveal
   const revealObs = new IntersectionObserver((entries) => {

@@ -132,9 +132,17 @@ foreach ($mmNavDropRaw as $drop) {
       <div class="nav-right">
         <!-- Nav links — DB-driven via panel_mm_pages + addition_mm_pages -->
         <div class="nav-links" id="navLinks" data-admc-tb="panel_mm_pages">
-          <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">
-            <i class="ph ph-x"></i>
-          </button>
+          <!-- Sidebar header: logo + close -->
+          <div class="sidebar-header">
+            <a href="/" class="sidebar-logo">
+              <img src="<?= htmlspecialchars($mm_info['image_1'] ?? '/assets/img/logo.png', ENT_QUOTES, 'UTF-8') ?>"
+                   alt="<?= htmlspecialchars($site_name, ENT_QUOTES, 'UTF-8') ?>"
+                   style="height:38px;width:auto;object-fit:contain;display:block;">
+            </a>
+            <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">
+              <i class="ph ph-x"></i>
+            </button>
+          </div>
 
           <?php foreach ($mmNavParents as $nav):
             $hasDropdown = isset($mmNavDropByHash[$nav['hash_id']]);
