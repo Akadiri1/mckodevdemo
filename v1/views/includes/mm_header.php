@@ -132,12 +132,16 @@ foreach ($mmNavDropRaw as $drop) {
       <div class="nav-right">
         <!-- Nav links — DB-driven via panel_mm_pages + addition_mm_pages -->
         <div class="nav-links" id="navLinks" data-admc-tb="panel_mm_pages">
-          <!-- Sidebar header: logo + close -->
+          <!-- Sidebar header: logo + name + close -->
           <div class="sidebar-header">
-            <a href="/" class="sidebar-logo">
+            <a href="/" class="sidebar-logo-wrap">
               <img src="<?= htmlspecialchars($logo_directory ?? '', ENT_QUOTES, 'UTF-8') ?>"
                    alt="<?= htmlspecialchars($site_name, ENT_QUOTES, 'UTF-8') ?>"
-                   class="logo-img">
+                   class="sidebar-avatar">
+              <div class="sidebar-logo-text">
+                <span class="sidebar-name"><?= htmlspecialchars($site_name, ENT_QUOTES, 'UTF-8') ?></span>
+                <span class="sidebar-tagline"><?= htmlspecialchars($site_tagline ?? '', ENT_QUOTES, 'UTF-8') ?></span>
+              </div>
             </a>
             <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">
               <i class="ph ph-x"></i>
