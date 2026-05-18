@@ -849,7 +849,8 @@ ul {
   filter: brightness(1.1);
 }
 
-[data-theme="light"] .hero .btn-outline {
+[data-theme="light"] .hero .btn-outline,
+[data-theme="light"] .page-hero .btn-outline {
   color: #f9fafb;
   border-color: rgba(255, 255, 255, 0.3);
 }

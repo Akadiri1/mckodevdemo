@@ -1,6 +1,6 @@
 <?php
 $hash  = $uri[2] ?? '';
-$epArr = selectContent($conn, "panel_mm_podcast", ["hash_id" => $hash, "visibility" => "show"]);
+try { $epArr = selectContent($conn, "panel_mm_podcast", ["hash_id" => $hash, "visibility" => "show"]); } catch (Exception $e) { $epArr = []; }
 if (empty($epArr)) { include APP_PATH . '/views/404.php'; die; }
 $ep = $epArr[0];
 
@@ -8,7 +8,7 @@ $page_title      = htmlspecialchars($ep['input_title'], ENT_QUOTES, 'UTF-8');
 $bodyClass       = "has-dark-hero";
 $metaDescription = previewBody($ep['text_description'], 30);
 
-$related = selectContentDesc($conn, "panel_mm_podcast", ["visibility" => "show"], "id", 4);
+try { $related = selectContentDesc($conn, "panel_mm_podcast", ["visibility" => "show"], "id", 4); } catch (Exception $e) { $related = []; }
 $related = array_filter($related, function($r) use ($hash) { return $r['hash_id'] !== $hash; });
 $related = array_slice(array_values($related), 0, 3);
 

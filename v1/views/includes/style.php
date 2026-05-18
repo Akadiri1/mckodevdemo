@@ -95,6 +95,16 @@ h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; line-height: 1.2; }
   background: rgba(255,255,255,0.12);
   border-color: var(--white);
 }
+/* Visible on light backgrounds */
+.btn-outline-dark {
+  background: transparent;
+  color: var(--navy, #0a0e2a);
+  border-color: var(--navy, #0a0e2a);
+}
+.btn-outline-dark:hover {
+  background: var(--navy, #0a0e2a);
+  color: var(--white, #fff);
+}
 .btn-navy {
   background: var(--navy);
   color: var(--white);

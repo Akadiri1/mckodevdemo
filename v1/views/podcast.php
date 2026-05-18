@@ -2,7 +2,7 @@
 $page_title = "GTLE Podcast";
 $bodyClass  = "has-dark-hero";
 
-$episodes = selectContentAsc($conn, "panel_mm_podcast", ["visibility" => "show"], "input_order", 20);
+try { $episodes = selectContentAsc($conn, "panel_mm_podcast", ["visibility" => "show"], "input_order", 20); } catch (Exception $e) { $episodes = []; }
 
 include 'includes/mm_header.php';
 ?>

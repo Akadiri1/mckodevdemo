@@ -11,7 +11,7 @@ $about        = !empty($aboutData) ? $aboutData[0] : null;
 $cta          = !empty($ctaData)   ? $ctaData[0]   : null;
 $aboutFeats   = selectContentAsc($conn,  "panel_mm_about_features",  ["visibility" => "show"], "input_order", 10);
 $services     = selectContentAsc($conn,  "panel_mm_services",         ["visibility" => "show"], "input_order", 6);
-$podcasts     = selectContentDesc($conn, "panel_mm_podcast",          ["visibility" => "show"], "id", 6);
+try { $podcasts = selectContentDesc($conn, "panel_mm_podcast", ["visibility" => "show"], "id", 6); } catch (Exception $e) { $podcasts = []; }
 $testimonials = selectContentAsc($conn,  "panel_mm_testimonials",     ["visibility" => "show"], "input_order", 10);
 $projects     = selectContentAsc($conn,  "panel_mm_projects",          ["visibility" => "show"], "input_order", 8);
 
