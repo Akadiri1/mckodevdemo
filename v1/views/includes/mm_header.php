@@ -43,8 +43,14 @@ foreach ($mmNavDropRaw as $drop) {
   <meta name="keywords" content="<?= htmlspecialchars($metakeys, ENT_QUOTES, 'UTF-8') ?>">
   <meta property="og:title" content="<?= htmlspecialchars($site_name, ENT_QUOTES, 'UTF-8') ?> — <?= htmlspecialchars($page_title ?? 'Home', ENT_QUOTES, 'UTF-8') ?>">
   <meta property="og:description" content="<?= htmlspecialchars($metaDescription, ENT_QUOTES, 'UTF-8') ?>">
-  <meta property="og:image" content="<?= htmlspecialchars($logo_directory, ENT_QUOTES, 'UTF-8') ?>">
+  <meta property="og:image" content="<?= htmlspecialchars($metaImage ?? $logo_directory, ENT_QUOTES, 'UTF-8') ?>">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:type" content="website">
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="<?= htmlspecialchars($site_name, ENT_QUOTES, 'UTF-8') ?> — <?= htmlspecialchars($page_title ?? 'Home', ENT_QUOTES, 'UTF-8') ?>">
+  <meta name="twitter:description" content="<?= htmlspecialchars($metaDescription, ENT_QUOTES, 'UTF-8') ?>">
+  <meta name="twitter:image"       content="<?= htmlspecialchars($metaImage ?? $logo_directory, ENT_QUOTES, 'UTF-8') ?>">
 
   <link rel="icon" type="image/jpeg" href="<?= htmlspecialchars($logo_directory, ENT_QUOTES, 'UTF-8') ?>">
   <link rel="apple-touch-icon" href="<?= htmlspecialchars($logo_directory, ENT_QUOTES, 'UTF-8') ?>">

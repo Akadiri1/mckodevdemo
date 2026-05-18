@@ -112,7 +112,7 @@ $description = $websiteInfo[0]['text_description'];
 $logo_directory = $websiteInfo[0]['image_1'];
 $domain = $_SERVER['HTTP_HOST'];
 $metakeys = $websiteInfo[0]['input_seo_keywords'];
-$metaImage = $logo_directory;
+$metaImage = $baseUrl . '/screenshot.png';
 $site_icon = $logo_directory;
 $metaDescription = $description;
 $logo_width = $websiteInfo[0]['input_image_width'];
@@ -156,7 +156,7 @@ if ($websiteStyle[0]['status'] === "demo") {
     $logo_directory = $_SESSION['image_select'];
   } else {
     //Add the path to your project screenshot
-    $metaImage = "/seo-image.png";
+    $metaImage = $baseUrl . '/screenshot.png';
   }
 }
 
