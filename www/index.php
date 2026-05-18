@@ -50,7 +50,12 @@ if (getenv("MKP_INIT")) {
 
 
 
-setcookie("admc", "mckodevdemo.local", time()+31536000, "/", "", false, false);
+if (getenv("ADMC_USERNAME")) {
+  $admc_username = getenv("ADMC_USERNAME");
+  setcookie("admc", "", time() - 3600, "/", null, false, false);
+  setcookie("admc", "", time() - 3600, null, null, false, false);
+  setcookie("admc", $admc_username, time() + 31536000, "/", null, false, false);
+}
 
 
 // $_SESSION['admin_id'] = "aaa";
@@ -112,7 +117,8 @@ $description = $websiteInfo[0]['text_description'];
 $logo_directory = $websiteInfo[0]['image_1'];
 $domain = $_SERVER['HTTP_HOST'];
 $metakeys = $websiteInfo[0]['input_seo_keywords'];
-$metaImage = $baseUrl . '/screenshot.png';
+$_seoProtocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+$metaImage = $_seoProtocol . '://' . $domain . '/screenshot.png';
 $site_icon = $logo_directory;
 $metaDescription = $description;
 $logo_width = $websiteInfo[0]['input_image_width'];
@@ -156,7 +162,7 @@ if ($websiteStyle[0]['status'] === "demo") {
     $logo_directory = $_SESSION['image_select'];
   } else {
     //Add the path to your project screenshot
-    $metaImage = $baseUrl . '/screenshot.png';
+    $metaImage = $_seoProtocol . '://' . $domain . '/screenshot.png';
   }
 }
 
